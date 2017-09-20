@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>design4</title>
+		<script type="text/javascript" charset="utf-8">
+			      
+			      
+			      //单体模式(singleton)
+			  // 1 简单单体模式
+			      /*
+			      var Singleton = {
+			      	  attr1:true,
+			      	  attr2:10,
+			      	  method1:function(){
+			      	  	  alert('我是方法一！');
+			      	  },
+			      	  method2:function(){
+			      	  	  alert('我是方法二');
+			      	  }
+			      };
+			      alert(Singleton.attr1);
+			      Singleton.method1(); 
+			      */
+			      
+			      //补充：划分命名空间 (区分代码)
+			      /*
+			      var LXL = {};
+			      LXL.Singleton = {
+			      	  attr1:true,
+			      	  attr2:10,
+			      	  method1:function(){
+			      	  	  alert('我是方法一！');
+			      	  },
+			      	  method2:function(){
+			      	  	  alert('我是方法二');
+			      	  }
+			      };
+			      alert(LXL.Singleton.attr1);
+			      LXL.Singleton.method1();
+			      */
+			     
+			     
+			  // 2 借用闭包创建单体 ： 闭包主要的目的 保护数据
+			     // 命名空间
+			     var LXL = {};
+			     LXL.Singleton = (function(){
+			     	
+			     	// 添加自己的私有成员
+			     	  var a1 = true;
+			     	  var a2 = 10;
+			     	  var f1 = function(){
+			     	  	  alert('f1');
+			     	  };
+			     	  var f2 = function(){
+			     	  	  alert('f2');
+			     	  };
+			     	// 把块级作用域里的执行结果赋值给我的单体对象
+			     	  return{
+						      	  attr1:a1,
+						      	  attr2:a2,
+						      	  method1:function(){
+						      	  	  return f1();
+						      	  },
+						      	  method2:function(){
+						      	  	  return f2();
+						      	  }
+			     	  };
+			     })();
+			     alert(LXL.Singleton.attr1);
+			     LXL.Singleton.method1();
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>
+

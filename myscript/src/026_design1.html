@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>design1</title>
+		<script type="text/javascript" charset="utf-8">
+			
+			       //javaScript定义接口有三种方式
+			       
+			       //1 注解描述的方式
+			       //优点：程序员可以有一个参考
+			       //缺点：还是属于文档的范畴，这种方式太松散了 没有检查接口的方法是否完全被实现
+			       
+			        /**
+			         *    interface Composite {
+			         * 	    function add(obj);
+			         *      function remove(obj);
+			         *      function update(obj);
+			         *  }
+			         */
+			        
+			        // CompositeImp1 implements Composite
+			        var CompositeImp1 = function(){
+			        	   
+			 
+			        };
+			        
+			        CompositeImp1.prototype.add = function(obj){
+			        	//do something ...
+			        };
+			        CompositeImp1.prototype.remove = function(obj){
+			        	//do something ...
+			        };
+			        CompositeImp1.prototype.update = function(obj){
+			        	//do something ...
+			        };
+			        
+			        var c1 = new CompositeImp1();
+			        var c2 = new CompositeImp1();
+			        
+			        alert(c1.add == c2.add);
+			       
+	
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>
+

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>function7</title>
+		<script type="text/javascript" charset="utf-8">
+			   
+			   
+			   //垃圾收集 方法1：标记方法  2：引用计数法
+			   /*
+			   function test(){
+			   	    var a = 10 ;
+			   	    var b = 20 ;
+			   	    var c ;
+			   }
+			   test(); //执行完毕 之后 a、b又被标记了一次 ：没有被使用
+			   */
+			  
+			  
+			  //块级作用域的概念
+			  
+			  
+			  //高级程序语言  java  for  if 块级作用域的概念、
+			  //js 没有块级作用域的概念
+			  /*
+			  function test(){
+			  	  for(var i = 1; i <= 5 ; i++){      //i
+			  	  	    alert(i);
+			  	  }
+			  	  //alert(i);   //6
+			  }
+			  test();
+			  */
+			 
+			 
+			 
+			 //js: ()表示执行
+			 /*	
+		      function test(){
+		      	
+		      	  (function(){
+		      	  	   for(var i = 1; i <= 5 ; i++){      
+			  	  	    alert(i);
+			  	       }
+		      	  
+		      	   })();
+ 
+			  	  alert(i);   
+			  }
+			  test();
+			  */
+			 
+			 
+			 //(function(){alert('我直接执行了');})();   //匿名执行作用域
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>
+

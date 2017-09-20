@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>命令模式</title>
+		<script type="text/javascript" charset="utf-8" src="../commons/CommonUtil.js"></script>
+		<script>
+			    
+			    //命令模式是一种封装方法调用的方式
+			    //命令模式的目的：把调用命令的调用者 和 执行命令的接收者
+			    //要执行一件事情：1(命令1) 2(命令2) 3(命令3)
+			    //命令模式 必须实现接口(execute)
+			    //命令模式分类：简单命令模式、复杂命令模式(事物)、用闭包去封装命令模式(更加灵活去调用命令)
+			    var CommandInterface=new BH.Interface('CommandInterface',['execute']);
+			    
+			    //有一个按钮 点击按钮 触发几个元素去执行一些动画效果
+			    //2个命令 (1:start 2:stop)
+			    
+			    //命令模式的主要概念：调用者只需要执行相应的命令即可，不需要去关注命令是怎么去执行的	
+			    //                    执行者它才真正去处理这条命令的内部实现
+			    /*
+			    var StartCommand=function(obj){
+			    	 this.ad=obj;
+			    };
+			    StartCommand.prototype.execute=function(){
+			    	 this.ad.start();
+			    };
+			    var StopCommand=function(){
+			    	 this.ad=obj;
+			    };
+			    StopCommand.prototype.execute=function(){
+			    	 this.ad.stop();
+			    };
+			    
+			    var startCommand=new StartCommand(obj);
+			    startCommand.execute();
+			    var stopCommand=new StopCommand(obj);
+			    stopCommand.execute();
+			    */
+			   
+			   
+			   //闭包命令模式
+			   /*
+			   function MakeStart(obj){
+			   	   return function(){
+			   	   	    obj.start();
+			   	   };
+			   }
+			   function MakeStop(obj){
+			   	   return function(){
+			   	   	    obj.stop();
+			   	   };
+			   }
+			   
+			   var startCommand=new MakeStart(obj);
+			   startCommand();  //命令开启了
+			   var stopCommand=new MakeStop(obj);
+			   stopCommand(); //命令结束了
+			   */
+			  
+			  // 客户、调用者、接收者
+			  // 客户创建命令，调用这个执行命令，接收者在命令执行时进行相应的操作
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
+
