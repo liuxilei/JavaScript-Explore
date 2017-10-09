@@ -22,29 +22,29 @@
 			
 			var arr = [2,1,2,10,2,3,5,5,1,10,13];
 			//把数组转成对象
-			function toObject(arr){
-				var obj = {}; //私有对象
+			function toObject(arr) {
+			    var obj = {}; //私有对象
 				var j;
-				for(var i=0 , j = arr.length ; i < j ; i++){
-					     obj[arr[i]] = true ;
+				for (var i=0 , j = arr.length ; i < j ; i++) {
+				    obj[arr[i]] = true ;
 				}
 				return obj ;
 			}
 			
 			//把对象转成数组
-			function keys(obj){
+			function keys(obj) {
 				var arr = [];  //私有对象
-				for(var attr in obj){
-					if(obj.hasOwnProperty(attr)){        //雅虎YUI底层代码
-						 arr.push(attr);
+				for (var attr in obj) {
+				    if (obj.hasOwnProperty(attr)) {        //雅虎YUI底层代码
+					    arr.push(attr);
 					}
 				}
 				return arr ;
 			}
 			
 			//综合的方法 去掉数组中的重复项
-			function uniq(newarr){
-				 return keys(toObject(newarr));
+			function uniq(newarr) {
+			    return keys(toObject(newarr));
 			}
 			alert(uniq(arr));
 		</script>

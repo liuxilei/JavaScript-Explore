@@ -10,26 +10,26 @@
 			        //简单原型
 			        
 			        /*
-			        function Person(){
+			        function Person() {
 			        	
 			        }
 			        
 			        Person.prototype = {
-			        	//constructor: Person,    //必须得表示原型对象的构造器
+			            //constructor: Person,    //必须得表示原型对象的构造器
 			        	name: 'z3',
 			        	age: 20,
 			        	job: '程序员',
-			        	say: function(){
-			        		alert('我是原型的函数!');
+			        	say: function() {
+			        	    alert('我是原型的函数!');
 			        	}
 			        };
 			        
 			        //ECMA5 给原型对象重新设置构造器的方法 Object.defineProperty();
 			        //FF4 + ie8+
 			        //3个参数  参数1：重设构造器对象 参数2：设置什么属性  参数3：option配置项
-			        Object.defineProperty(Person.prototype,'constructor',{
-			        	  enumerable : false,
-			        	  value : Person
+			        Object.defineProperty(Person.prototype,'constructor', {
+			            enumerable: false,
+			        	value: Person
 			        });
 			        */
 			        
@@ -43,32 +43,32 @@
 			        alert(Person.prototype.constructor);
 			        
 			       //枚举对象的keys
-			       for( attr in p1){
-			       	  alert(attr);
+			       for ( attr in p1) {
+			           alert(attr);
 			       }
 			       */
 			      
 			//原型的动态特性
 			      
 			      /*
-			      function Person(){
+			      function Person() {
 			      	
 			      }
 			      var p1 = new Person();
 			      //原型对象的构造器默认为Person
-			      Person.prototype.say = function(){alert('我是方法!');};
+			      Person.prototype.say = function() {alert('我是方法!');};
 			      p1.say();
 			      */
 			     
-		        function Person(){
+		        function Person() {
 		        	
 		        }
 		        var p1 = new Person();
 		        //-----------------------------------------
 		        Person.prototype = {
-		        	constructor : Person ,  //必须得表示原型对象的构造器
-		        	say: function(){
-		        		alert('我是原型的函数!');
+		        	constructor: Person ,  //必须得表示原型对象的构造器
+		        	say: function() {
+		        	    alert('我是原型的函数!');
 		        	}
 		        };
 		        //var p1 = new Person();

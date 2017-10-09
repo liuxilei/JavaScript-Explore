@@ -47,87 +47,87 @@
 			 var CompositeInterface = new BH.Interface('CompositeInterface',['addChild','getChild']);
 			 var LeafInterface = new BH.Interface('LeafInterface',['hardworking','sleeping']);
 			
-			 var Composite = function(name){
-			 	 this.name=name;
-			 	 this.type='Composite';        //说明对象的类型
-			 	 this.children=[];                //承装孩子的空数组
+			 var Composite = function(name) {
+			 	 this.name = name;
+			 	 this.type = 'Composite';        //说明对象的类型
+			 	 this.children = [];                //承装孩子的空数组
 			 };
-			 Composite.prototype={
-			 	 constructor:Composite,
-			 	 addChild:function(child){
-			 	 	 this.children.push(child);
+			 Composite.prototype = {
+			     constructor: Composite,
+			 	 addChild: function(child) {
+			 	     this.children.push(child);
 			 	 	 return this;
 			 	 },
-			 	 getChild:function(name){
-			 	 	 // 接收叶子对象类型的数组
+			 	 getChild: function(name) {
+			 	     // 接收叶子对象类型的数组
 			 	 	 var elements = [];
 			 	 	// 判断对象是否为leaf类型，如果是直接加到elements数组中，不是继续递归调用 
-			 	 	 var pushLeaf=function(item){
-			 	 	 	 	  if(item.type === 'Composite'){
-			 	 	 	 	  	     item.children.each(arguments.callee);
-			 	 	 	 	  }else if(item.type === 'Leaf'){
-			 	 	 	 	  	     elements.push(item);
-			 	 	 	 	  }
-			 	 	 	 };
+			 	 	 var pushLeaf = function(item) {
+			 	 	     if (item.type === 'Composite') {
+			 	 	 	     item.children.each(arguments.callee);
+			 	 	 	 }else if (item.type === 'Leaf') {
+			 	 	 	     elements.push(item);
+			 	 	 	 }
+			 	 	 };
 			 	 	 // 根据name 让指定name下的所有的类型为leaf对象去执行操作
-			 	 	 if(name && this.name!==name){
-			 	 	 	 this.children.each(function(item){
-			 	 	 	 	 //  如果传递的是2级节点名称
-			 	 	 	 	  if(item.name===name && item.type==='Composite'){
-			 	 	 	 	  	   item.children.each(pushLeaf);
-			 	 	 	 	  }
+			 	 	 if (name && this.name!==name) {
+			 	 	     this.children.each(function(item) {
+			 	 	 	     //  如果传递的是2级节点名称
+			 	 	 	 	 if (item.name === name && item.type === 'Composite') {
+			 	 	 	 	     item.children.each(pushLeaf);
+			 	 	 	 	 }
 			 	 	 	 	 // 如果传递的name是3级节点、4级、5级...N级
-			 	 	 	 	 if(item.name!==name && item.type==='Composite'){
+			 	 	 	 	 if (item.name !== name && item.type === 'Composite') {
 			 	 	 	 	 	 item.children.each(arguments.callee);
 			 	 	 	 	 }
 			 	 	 	 	 // 如果传递的name是叶子节点的时候
-			 	 	 	 	 if(item.name===name && item.type==='Leaf'){
+			 	 	 	 	 if (item.name === name && item.type === 'Leaf') {
 			 	 	 	 	 	 elements.push(item);
 			 	 	 	 	 }
 			 	 	 	 });
 			 	 	 }
 			 	 	 // 不传递name 让整个公司所有类型为Leaf的对象去执行操作
-			 	 	 else{ 
-			 	 	 	 this.children.each(pushLeaf);
+			 	 	 else { 
+			 	 	     this.children.each(pushLeaf);
 			 	 	 }
 			 	 	 return elements;
 			 	 },
-			 	 hardworking:function(name){
+			 	 hardworking: function(name) {
 			 	 	//得到所有Leaf类型的对象数组
-			 	 	var leafObjects=this.getChild(name);
-			 	 	for(var i=0;i<leafObjects.length;i++){
-			 	 		 leafObjects[i].hardworking();
-			 	 	}
+			 	     var leafObjects = this.getChild(name);
+			 	 	 for (var i = 0;i < leafObjects.length;i++) {
+			 	 	     leafObjects[i].hardworking();
+			 	 	 }
 			 	 },
-			 	 sleeping:function(name){
-			 	 	//得到所有Leaf类型的对象数组
-			 	 	var leafObjects=this.getChild(name);
-			 	 	for(var i=0;i<leafObject.length;i++){
-			 	 		 leafObject[i].sleeping();
-			 	 	}
+			 	 sleeping: function(name) {
+			 	     //得到所有Leaf类型的对象数组
+			 	 	 var leafObjects = this.getChild(name);
+			 	 	 for (var i = 0;i < leafObject.length;i++) {
+			 	 	     leafObject[i].sleeping();
+			 	 	 }
 
 			 	 }
 			 };
 			
-			 var Leaf = function(name){
-			 	 this.name=name;
-			 	 this.type='Leaf';             //说明对象的类型
+			 var Leaf = function(name) {
+			     this.name = name;
+			 	 this.type = 'Leaf';             //说明对象的类型
 			 };
-			 Leaf.prototype={
-			 	 constructor:Leaf,
-			 	 addChild:function(child){
-			 	 	 throw new Error('this method is disable...');
+			 Leaf.prototype = {
+			 	 constructor: Leaf,
+			 	 addChild: function(child) {
+			 	     throw new Error('this method is disable...');
 			 	 },
-			 	 getChild:function(name){
-			 	 	 if(this.name=name){
-			 	 	 	return this;
+			 	 getChild: function(name) {
+			 	 	 if (this.name=name) {
+			 	 	     return this;
 			 	 	 }
 			 	 	 return null;
 			 	 },
-			 	 hardworking:function(){
+			 	 hardworking: function() {
 			 	 	 document.write(this.name+'....努力工作');
 			 	 },
-			 	 sleeping:function(){
+			 	 sleeping: function() {
 			 	 	 document.write(this.name+'....睡觉');
 			 	 }
 			 };

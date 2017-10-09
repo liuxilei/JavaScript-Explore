@@ -13,20 +13,20 @@
 			      
 			      // 程序中：简单的适配器
 			      /*
-			      var obj={                        //鼠标和键盘（圆口）
-			      	str1:'111',
-			      	str2:'222',
-			      	str3:'333'
+			      var obj = {                        //鼠标和键盘（圆口）
+			          str1: '111',
+			      	  str2: '222',
+			      	  str3: '333'
 			      };
 			      
 			      //适配器方法
-			      function adapter(obj){
-			      	    interfaceMethod(obj.str1,obj.str2,obj.str3);
+			      function adapter(obj) {
+			          interfaceMethod(obj.str1,obj.str2,obj.str3);
 			      } 
 			      
 			      //新电脑 usb
-			      function interfaceMethod(x,y,z){
-			      	     //复杂的操作
+			      function interfaceMethod(x,y,z) {
+			      	  //复杂的操作
 			      }
 			      */
 			     
@@ -39,14 +39,14 @@
 			     //YAHOO(我们用雅虎的框架，但是Prototype程序员该怎么写代码，还怎么写就行啦！)
 			     //模拟：根据id获得指定的dom元素
 			     //Prototype $ function  (不需要传递任何的形参 一个id 写一个参数  多个id 写多个参数)
-			     function $(){
-			     	 var elements=[];
-			     	 for(var i=0;i<arguments.length;i++){ 
-			     	 	 var element=arguments[i];
-			     	 	 if(typeof element=='string'){
-			     	 	 	 element=document.getElementById(element);
-			     	 	 	} 
-			     	 	 if(arguments.length==1){
+			     function $() {
+			         var elements = [];
+			     	 for (var i = 0;i < arguments.length;i++) { 
+			     	     var element=arguments[i];
+			     	 	 if (typeof element == 'string') {
+			     	 	     element=document.getElementById(element);
+			     	 	 	 } 
+			     	 	 if (arguments.length==1) {
 			     	 	     return element;
 			     	 	     }	  
 			     	 	 elements.push(element);
@@ -55,37 +55,37 @@
 			     }
 			     // YUI get function (传递了一个参数:类型不是字符串 就是数组)
 			     var YAHOO = {};
-			     YAHOO.get=function(e1){
-			     	  if(typeof e1=='string'){
-			     	  	 return document.getElementById(e1);
-			     	  }
-			     	  if(e1 instanceof Array){
-			     	  	 var elements=[];
-			     	  	 for(var i=0;i<e1.length;i++){
-			     	  	 	   elements[elements.length]=YAHOO.get(e1[i]);
+			     YAHOO.get = function(e1) {
+			         if (typeof e1=='string') {
+			     	     return document.getElementById(e1);
+			     	 }
+			     	 if (e1 instanceof Array) {
+			     	     var elements=[];
+			     	  	 for (var i=0;i<e1.length;i++) {
+			     	  	     elements[elements.length] = YAHOO.get(e1[i]);
 			     	  	 }
 			     	  	 return elements; 
 			     	  }
-			     	  if(e1){
-			     	  	return e1;
+			     	  if (e1) {
+			     	      return e1;
 			     	  }
-			     	  return null;
+			     	      return null;
 			     };
 			     
 			    
-			     YAHOO.get=YUIToPrototypeAdapter;
-			     function YUIToPrototypeAdapter(){
-			     	 //对于YUI开发人员来说 永远传递一个参数
-			     	 if(arguments.length==1){
-			     	 	var e=arguments[0];
-			     	 	return $.apply(window,e instanceof Array?e:[e]);
-			     	 }else{
+			     YAHOO.get = YUIToPrototypeAdapter;
+			     function YUIToPrototypeAdapter() {
+			         //对于YUI开发人员来说 永远传递一个参数
+			     	 if (arguments.length==1) {
+			     	     var e = arguments[0];
+			     	 	 return $.apply(window,e instanceof Array ? e:[e]);
+			     	 }else {
 			     	 	return $.apply(window,arguments);
 			     	 }
 			     }
 			     
 			     
-			     window.onload=function(){
+			     window.onload = function() {
 			     	/*
 			     	//prototype开发人员习惯的写法
 			     	 var domarr = $('inp1','inp2');
@@ -99,7 +99,7 @@
 			     	*/
 			     	
 			     	// YUI 我是一个prototype 用项目经理的说法
-			     	var domarr=YAHOO.get('inp1','inp2');
+			     	var domarr = YAHOO.get('inp1','inp2');
 			     	alert(domarr);
 			     };
 		</script>

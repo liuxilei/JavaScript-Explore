@@ -18,40 +18,40 @@
 			        // classic(传统模式)
 			        
 			        
-			     $(function(){
+			     $(function() {
 			     	
-			     	// 1前台业务逻辑 : 这一段代码处理前台的事件注册和绑定的
-			     	var inp = document.getElementById('inp');
-			     	// 用事件注册的方式，向元素上添加事件
-			     	BH.EventUtil.addHandler(inp,'click',sendReq);
-			     	//----------------------------------------------------------
-			     	// 2后台业务逻辑 ： 这一段代码处理后台发送请求的
-			     	// 处理后台的函数
-			     	function sendReq(){
-			     		//ajax
-			     		//1 后台服务器的的地址
-			     		//2 是一个对象或者一个字符串（参数）
-			     		//$.post('URL',{msg:this.value},function(result){
-			     			//CallBack....
-			     		//});
-			     		alert('发送了指定的数据到后台：'+this.value);
+			         // 1前台业务逻辑 : 这一段代码处理前台的事件注册和绑定的
+			     	 var inp = document.getElementById('inp');
+			     	 // 用事件注册的方式，向元素上添加事件
+			     	 BH.EventUtil.addHandler(inp,'click',sendReq);
+			     	 //----------------------------------------------------------
+			     	 // 2后台业务逻辑 ： 这一段代码处理后台发送请求的
+			     	 // 处理后台的函数
+			     	 function sendReq() {
+			     	     //ajax
+			     		 //1 后台服务器的的地址
+			     		 //2 是一个对象或者一个字符串（参数）
+			     		 //$.post('URL', {msg:this.value},function(result){
+			     		     //CallBack....
+			     		 //});
+			     		 alert('发送了指定的数据到后台：'+this.value);
 			     	}
 			     });
 			     */
 			    
 			    
 			    // 利用桥模式 分开两个业务逻辑单元
-			    $(function(){
+			    $(function() {
 			     	
-			     	// 1前台业务逻辑 : 这一段代码处理前台的事件注册和绑定的
+			        // 1前台业务逻辑 : 这一段代码处理前台的事件注册和绑定的
 			     	var inp = document.getElementById('inp');
 			     	// 用事件注册的方式，向元素上添加事件
 			     	BH.EventUtil.addHandler(inp,'click',bridgeHadler);
 			     	
 			     	
 			     	// 利用桥模式分开
-			     	function bridgeHadler(){
-			     		var msg=this.value;
+			     	function bridgeHadler() {
+			     	    var msg=this.value;
 			     		sendReq(msg);
 			     	}
 			     	
@@ -59,11 +59,11 @@
 			     	
 			     	// 2后台业务逻辑 ： 这一段代码处理后台发送请求的    
 			     	// 处理后台的函数
-			     	function sendReq(msg){
-			     		//ajax
+			     	function sendReq(msg) {
+			     	    //ajax
 			     		//1 后台服务器的的地址
 			     		//2 是一个对象或者一个字符串（参数）
-			     		//$.post('URL',{msg:this.value},function(result){
+			     		//$.post('URL', {msg:this.value},function(result) {
 			     			//CallBack....
 			     		//});
 			     		alert('发送了指定的数据到后台：'+msg);

@@ -10,22 +10,22 @@
 			   var obj = new Object();   //var obj = {};
 			   obj.name = 'z3';
 			   obj.sex = '男';
-			   obj.sayName = function(){alert('我是张三!');};
+			   obj.sayName = function() {alert('我是张三!');};
               */
              
              //类的概念
              
              //第一种形式  工厂模型
              /*
-             function creatPerson(name,sex,age){
-             	   var obj = new Object();
-             	   obj.name = name;
-             	   obj.sex = sex;
-             	   obj.age = age;
-             	   obj.sayName = function(){
-             	   	    alert(this.name);
-             	   };
-             	   return obj;
+             function creatPerson(name,sex,age) {
+                 var obj = new Object();
+             	 obj.name = name;
+             	 obj.sex = sex;
+             	 obj.age = age;
+             	 obj.sayName = function() {
+             	     alert(this.name);
+             	 };
+             	 return obj;
              }
              
              var p1 = creatPerson('z3','男','20');
@@ -40,13 +40,13 @@
             
             //函数的第一个字母大写 （类的模板）
            
-            function Person(name,age,sex){
-            	  this.name = name;
-            	  this.age = age;
-            	  this.sex = sex;
-            	  this.sayName = function(){
-            	  	   alert(this.name);
-            	  };
+            function Person(name,age,sex) {
+                this.name = name;
+            	this.age = age;
+            	this.sex = sex;
+            	this.sayName = function() {
+            	    alert(this.name);
+            	};
             }
            
             //构造一个对象 new关键字  传递参数 执行模板代码 返回对象

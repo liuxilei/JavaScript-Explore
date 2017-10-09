@@ -19,70 +19,70 @@
 			   // Super Shop 卖车
 			   // abstract Class  == ？Java的抽象类
 			   /* this CarShop is a abstract */
-			   function CarShop(){};
+			   function CarShop() {};
 			   CarShop.prototype = {
-			   	   constructor : CarShop,
-			   	   sellCar:function(type){
-			   	   	    // 销售人员...
-			   	   	    //var car = CarFactory.createCar(type);
-			   	   	    // 保险、相关服务...
-			   	   	    //return car;
-			   	   	    this.abstractSellCar(type);
+			       constructor: CarShop,
+			   	   sellCar: function(type) {
+			   	       // 销售人员...
+			   	   	   //var car = CarFactory.createCar(type);
+			   	   	   // 保险、相关服务...
+			   	   	   //return car;
+			   	   	   this.abstractSellCar(type);
 			   	   },
-			   	   abstractSellCar:function(){
-			   	   	  throw new Error('this method is abstract...');
+			   	   abstractSellCar: function() {
+			   	       throw new Error('this method is abstract...');
 			   	   }
 			   };
 			   
 			   // Benz 4s店
-			   function BenzCarShop(){};
+			   function BenzCarShop() {};
 			   BH.extend(BenzCarShop,CarShop);
 			   BenzCarShop.prototype = {
-			   	      constructor:BenzCarShop,
-			   	      sellCar:function(type){
-			   	      	var car;               //声明一个变量
-			   	      	var types = ['Benz'];   //所有benz类型的汽车
-			   	      	for(t in types){
-			   	      		//如果我的商店里有你想要的汽车型号
-			   	      		if(types[t] === type){
-			   	      			car = CarFactory.createCar(type);
-			   	      		}else {
-			   	      			throw new Error('没有你要的型号！');
-			   	      		}
+			       constructor: BenzCarShop,
+			   	   sellCar: function(type) {
+			   	       var car;               //声明一个变量
+			   	       var types = ['Benz'];   //所有benz类型的汽车
+			   	       for (t in types) {
+			   	           //如果我的商店里有你想要的汽车型号
+			   	      	   if (types[t] === type) {
+			   	      	       car = CarFactory.createCar(type);
+			   	      	   }else {
+			   	      	       throw new Error('没有你要的型号！');
+			   	      	   }
 			   	      	}
-			   	   	     return car;
+			   	   	    return car;
 			   	      }
 			   };
 			   // 宝马 4s店
-			   function BmwCarShop(){};
+			   function BmwCarShop() {};
 			   BH.extend(BmwCarShop,CarShop);
 			   BmwCarShop.prototype = {
-			   	      constructor:BmwCarShop,
-			   	      sellCar:function(type){
-			   	      	var car;               //声明一个变量
-			   	      	var types = ['Bmw'];   //所有bmw类型的汽车
-			   	      	for(t in types){
-			   	      		//如果我的商店里有你想要的汽车型号
-			   	      		if(types[t] === type){
-			   	      			car = CarFactory.createCar(type);
-			   	      		}else {
-			   	      			throw new Error('没有你要的型号！');
-			   	      		}
+			       constructor: BmwCarShop,
+			   	   sellCar: function(type) {
+			   	       var car;               //声明一个变量
+			   	       var types = ['Bmw'];   //所有bmw类型的汽车
+			   	       for (t in types) {
+			   	           //如果我的商店里有你想要的汽车型号
+			   	      	   if (types[t] === type) {
+			   	      	       car = CarFactory.createCar(type);
+			   	      	   }else {
+			   	      	       throw new Error('没有你要的型号！');
+			   	      	   }
 			   	      	}
-			   	   	     return car;
+			   	   	    return car;
 			   	      }
 			   };			   
 			   //生产车的工厂 目的就是为了生产车
 			   //单体模式  动态工厂模式
 			   var CarFactory = {
-			   	      createCar:function(type){
-			   	      	   // var car = new Benz();
-			   	      	   // 利用eval动态创建传入类型的实例对象
-				   	       var car = eval('new '+type+'()');
+			       createCar:function(type){
+			   	       // var car = new Benz();
+			   	       // 利用eval动态创建传入类型的实例对象
+				   	   var car = eval('new '+type+'()');
 				   	   	   
-				   	   	   //检验接口实现
-				   	   	   BH.Interface.ensureImplements(car,CarInterface);
-				   	   	   return car;
+				   	   //检验接口实现
+				   	   BH.Interface.ensureImplements(car,CarInterface);
+				   	   return car;
 			   	   	 }
 			   	
 			   };
@@ -91,37 +91,37 @@
 			   var CarInterface = new BH.Interface('CarInterface',['start','run']);
 			   
 			   // SuperClass  implements CarInterface
-			   function BaseCar(){};
+			   function BaseCar() {};
 			   BaseCar.prototype = {
-			   	    constructor:BaseCar,
-			   	    start:function(){
-			   	    	alert(this.constructor.name+' ..strat');
-			   	    },
-			   	    run:function(){
-			   	    	alert(this.constructor.name+' ..run');
-			   	    }
+			       constructor: BaseCar,
+			   	   start: function() {
+			   	      alert(this.constructor.name+' ..strat');
+			   	   },
+			   	   run: function() {
+			   	      alert(this.constructor.name+' ..run');
+			   	   }
 			   };
 			   
 			   
 			   // Class benz bmw audi (都是车)
 			   // 注意关键问题：子类先继承父类  子类再扩展子类自己特有的方法
-			   function Benz(){};
+			   function Benz() {};
 			   BH.extend(Benz,BaseCar);
-			   Benz.prototype.driveBenz = function(){alert('Benz..drive');};
-			   //Benz.prototype.start = function(){alert('Benz...start');};
-			   //Benz.prototype.run = function(){alert('Benz...run');};
+			   Benz.prototype.driveBenz = function() {alert('Benz..drive');};
+			   //Benz.prototype.start = function() {alert('Benz...start');};
+			   //Benz.prototype.run = function() {alert('Benz...run');};
 			   
-			   function Bmw(){};
+			   function Bmw() {};
 			   BH.extend(Bmw,BaseCar);
-			   Bmw.prototype.driveBenz = function(){alert('Bmw..drive');};
-			   //Bmw.prototype.start = function(){alert('Bmw...start');};
-			   //Bmw.prototype.run = function(){alert('Bmw....run');};
+			   Bmw.prototype.driveBenz = function() {alert('Bmw..drive');};
+			   //Bmw.prototype.start = function() {alert('Bmw...start');};
+			   //Bmw.prototype.run = function() {alert('Bmw....run');};
 			   
-			   function Audi(){};
+			   function Audi() {};
 			   BH.extend(Audi,BaseCar);
-			   Audi.prototype.driveBenz = function(){alert('Audi..drive');};
-			   //Audi.prototype.start = function(){alert('Audi...start');};
-			   //Audi.prototype.run = function(){alert('Audi...run');};
+			   Audi.prototype.driveBenz = function() {alert('Audi..drive');};
+			   //Audi.prototype.start = function() {alert('Audi...start');};
+			   //Audi.prototype.run = function() {alert('Audi...run');};
 			   
 			   /*
 			   var shop = new CarShop();

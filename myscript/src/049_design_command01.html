@@ -12,7 +12,7 @@
 			    //要执行一件事情：1(命令1) 2(命令2) 3(命令3)
 			    //命令模式 必须实现接口(execute)
 			    //命令模式分类：简单命令模式、复杂命令模式(事物)、用闭包去封装命令模式(更加灵活去调用命令)
-			    var CommandInterface=new BH.Interface('CommandInterface',['execute']);
+			    var CommandInterface = new BH.Interface('CommandInterface',['execute']);
 			    
 			    //有一个按钮 点击按钮 触发几个元素去执行一些动画效果
 			    //2个命令 (1:start 2:stop)
@@ -20,42 +20,42 @@
 			    //命令模式的主要概念：调用者只需要执行相应的命令即可，不需要去关注命令是怎么去执行的	
 			    //                    执行者它才真正去处理这条命令的内部实现
 			    /*
-			    var StartCommand=function(obj){
-			    	 this.ad=obj;
+			    var StartCommand = function(obj) {
+			        this.ad=obj;
 			    };
-			    StartCommand.prototype.execute=function(){
-			    	 this.ad.start();
+			    StartCommand.prototype.execute = function() {
+			    	this.ad.start();
 			    };
-			    var StopCommand=function(){
-			    	 this.ad=obj;
+			    var StopCommand=function() {
+			    	this.ad=obj;
 			    };
-			    StopCommand.prototype.execute=function(){
-			    	 this.ad.stop();
+			    StopCommand.prototype.execute = function() {
+			    	this.ad.stop();
 			    };
 			    
-			    var startCommand=new StartCommand(obj);
+			    var startCommand = new StartCommand(obj);
 			    startCommand.execute();
-			    var stopCommand=new StopCommand(obj);
+			    var stopCommand = new StopCommand(obj);
 			    stopCommand.execute();
 			    */
 			   
 			   
 			   //闭包命令模式
 			   /*
-			   function MakeStart(obj){
-			   	   return function(){
-			   	   	    obj.start();
+			   function MakeStart(obj) {
+			       return function() {
+			   	       obj.start();
 			   	   };
 			   }
-			   function MakeStop(obj){
-			   	   return function(){
-			   	   	    obj.stop();
+			   function MakeStop(obj) {
+			   	   return function() {
+			   	       obj.stop();
 			   	   };
 			   }
 			   
-			   var startCommand=new MakeStart(obj);
+			   var startCommand = new MakeStart(obj);
 			   startCommand();  //命令开启了
-			   var stopCommand=new MakeStop(obj);
+			   var stopCommand = new MakeStop(obj);
 			   stopCommand(); //命令结束了
 			   */
 			  

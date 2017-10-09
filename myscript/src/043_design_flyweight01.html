@@ -11,38 +11,38 @@
 			    //享元模式：内在数据static(出场商、型号、出厂日期、)  外在数据(拥有者、车牌号、最近登记日期)
 			    
 			    //出场商、型号、出厂日期、拥有者、车牌号、最近登记日期
-			    var Car=function(make,model,year,owner,tag,renewDate){
-			    	  this.make=make;
-			    	  this.madel=model;
-			    	  this.year=year;
-			    	  this.owner=owner;
-			    	  this.tag=tag;
-			    	  this.renewDate=renewDate;
+			    var Car = function(make,model,year,owner,tag,renewDate) {
+			        this.make = make;
+			    	this.madel = model;
+			    	this.year = year;
+			    	this.owner = owner;
+			    	this.tag = tag;
+			    	this.renewDate = renewDate;
 			    };
-			    Car.prototype={
-			    	constructor:Car,
-			    	getMake:function(){
-			    		return this.make;
+			    Car.prototype = {
+			    	constructor: Car,
+			    	getMake: function() {
+			    	    return this.make;
 			    	},
-			    	getModel:function(){
+			    	getModel: function() {
 			    		return this.model;
 			    	},
-			    	getYear:function(){
+			    	getYear: function() {
 			    		return this.year;
 			    	},
-			    	renewRegistration:function(newRenewDate){
-			    		this.renewDate=renewDate;
+			    	renewRegistration: function(newRenewDate) {
+			    		this.renewDate = renewDate;
 			    	}
 			    };
 			    
 			    
 			    
-			    var arr=[];
-			    var stime=new Date().getTime();
-			    for(var i=0;i<5000000;i++){
-			    	arr.push(new Car('上海大众','迈腾','2012-02-03','bhx','bj0011','2013-04-01'));
+			    var arr = [];
+			    var stime = new Date().getTime();
+			    for (var i = 0;i < 5000000;i++) {
+			        arr.push(new Car('上海大众','迈腾','2012-02-03','bhx','bj0011','2013-04-01'));
 			    }
-			    var etime=new Date().getTime();
+			    var etime = new Date().getTime();
 			    alert(etime-stime);
 		</script>
 	</head>

@@ -10,16 +10,16 @@
 			
 			   // 搭建一个工厂的环境
 			   //卖车的商店
-			   function CarShop(){};
+			   function CarShop() {};
 			   CarShop.prototype = {
-			   	   constructor : CarShop,
-			   	   sellCar:function(type){
-			   	   	   var car;  //声明一个变量
-			   	   	   switch(type){
-			   	   	   	   case'Benz':car = new Benz();break;
-			   	   	   	   case'Bmw' :car = new Bmw();break;
-			   	   	   	   case'Audi':car = new Audi();break;
-			   	   	   	   default:'not buy it';
+			       constructor: CarShop,
+			   	   sellCar: function(type) {
+			   	       var car;  //声明一个变量
+			   	   	   switch(type) {
+			   	   	       case'Benz': car = new Benz();break;
+			   	   	   	   case'Bmw' : car = new Bmw();break;
+			   	   	   	   case'Audi': car = new Audi();break;
+			   	   	   	   default: 'not buy it';
 			   	   	   }
 			   	   	   //检验接口实现
 			   	   	   BH.Interface.ensureImplements(car,CarInterface);
@@ -32,37 +32,37 @@
 			   var CarInterface = new BH.Interface('CarInterface',['start','run']);
 			   
 			   // SuperClass  implements CarInterface
-			   function BaseCar(){};
+			   function BaseCar() {};
 			   BaseCar.prototype = {
-			   	    constructor:BaseCar,
-			   	    start:function(){
-			   	    	alert(this.constructor.name+' ..strat');
-			   	    },
-			   	    run:function(){
-			   	    	alert(this.constructor.name+' ..run');
-			   	    }
+			       constructor: BaseCar,
+			   	   start: function() {
+			   	       alert(this.constructor.name+' ..strat');
+			   	   },
+			   	   run: function() {
+			   	       alert(this.constructor.name+' ..run');
+			   	   }
 			   };
 			   
 			   
 			   // Class benz bmw audi (都是车)
 			   // 注意关键问题：子类先继承父类  子类再扩展子类自己特有的方法
-			   function Benz(){};
+			   function Benz() {};
 			   BH.extend(Benz,BaseCar);
-			   Benz.prototype.driveBenz = function(){alert('Benz..drive');};
-			   //Benz.prototype.start = function(){alert('Benz...start');};
-			   //Benz.prototype.run = function(){alert('Benz...run');};
+			   Benz.prototype.driveBenz = function() {alert('Benz..drive');};
+			   //Benz.prototype.start = function() {alert('Benz...start');};
+			   //Benz.prototype.run = function() {alert('Benz...run');};
 			   
-			   function Bmw(){};
+			   function Bmw() {};
 			   BH.extend(Bmw,BaseCar);
-			   Bmw.prototype.driveBenz = function(){alert('Bmw..drive');};
-			   //Bmw.prototype.start = function(){alert('Bmw...start');};
-			   //Bmw.prototype.run = function(){alert('Bmw....run');};
+			   Bmw.prototype.driveBenz = function() {alert('Bmw..drive');};
+			   //Bmw.prototype.start = function() {alert('Bmw...start');};
+			   //Bmw.prototype.run = function() {alert('Bmw....run');};
 			   
-			   function Audi(){};
+			   function Audi() {};
 			   BH.extend(Audi,BaseCar);
-			   Audi.prototype.driveBenz = function(){alert('Audi..drive');};
-			   //Audi.prototype.start = function(){alert('Audi...start');};
-			   //Audi.prototype.run = function(){alert('Audi...run');};
+			   Audi.prototype.driveBenz = function() {alert('Audi..drive');};
+			   //Audi.prototype.start = function() {alert('Audi...start');};
+			   //Audi.prototype.run = function() {alert('Audi...run');};
 			   
 			   var shop = new CarShop();
 			   var car = shop.sellCar('Benz');

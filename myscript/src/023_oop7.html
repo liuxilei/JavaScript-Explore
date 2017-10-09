@@ -17,22 +17,22 @@
 			     
 			     
 			     // 父类构造函数 sup
-			     function Sup(name){
-			     	    this.name = name ;
+			     function Sup(name) {
+			         this.name = name;
 			     }
 			     
 			     // 父类的原型对象
 			     
 			     Sup.prototype = {
-			     	 constructor : Sup,
-			     	 sayName:function(){
-			     	 	 alert(this.name);
+			         constructor: Sup,
+			     	 sayName: function() {
+			     	     alert(this.name);
 			     	 }
 			     };
 			     
 			     // 子类的构造函数 sub
-			     function Sub(age){
-			     	  this.age = age;
+			     function Sub(age) {
+			     	 this.age = age;
 			     }
 			     
 			     //如果我们让子类的原型对象 等于父类的实例，结果会怎么样呢？(实现了js的继承)

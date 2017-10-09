@@ -8,17 +8,17 @@
 			    
 			       //原型的概念：原型对象里的所有属性和方法 被所有构造函数实例化出来的对象所共享
 			       /*
-			       function Person(){
+			       function Person() {
 			       	
 			       }
 			       
 			       Person.prototype = {
-			       	     constructor: Person,
-			       	     name:'z3',
-			       	     age:20,
-			       	     job:'程序员',
-			       	     friends:['李四','王五'],
-			       	     sayName: function(){alert('我的名字');}
+			           constructor: Person,
+			       	   name: 'z3',
+			       	   age: 20,
+			       	   job: '程序员',
+			       	   friends: ['李四','王五'],
+			       	   sayName: function(){alert('我的名字');}
 			       };
 			       
 			       var p1 = new Person();
@@ -32,16 +32,16 @@
 			      
 			  //组合使用原型和构造函数式(定义一个类 开发时常用的方式)
 			      /*
-			      function Person(name,age,friends,job){
-			      	    this.name = name;
-			      	    this.age = age;
-			      	    this.friends = friends;
-			      	    this.job = job;
+			      function Person(name,age,friends,job) {
+			          this.name = name;
+			      	  this.age = age;
+			      	  this.friends = friends;
+			      	  this.job = job;
 			      }
 			      Person.prototype = {
-			      	    sayName:function(){
-			      	    	alert(this.name);
-			      	    }
+			          sayName:function() {
+			      	      alert(this.name);
+			      	  }
 			      };
 			      
 			      var p1 = new Person('z3',20,	['王五','赵六'],'技术总监');
@@ -56,36 +56,35 @@
 	//经典的原型模式		     
 			   //动态原型模式：(让你的代码 都封装在一起)
 			     /*
-			     function Person(name,age,friends,job){
-			      	    this.name = name;
-			      	    this.age = age;
-			      	    this.friends = friends;
-			      	    this.job = job;
-			      	    
+			     function Person(name,age,friends,job) {
+			         this.name = name;
+			      	 this.age = age;
+			      	 this.friends = friends;
+			      	 this.job = job;
 			      	    //动态原型方法：
-			      	    if(typeof this.sayName != 'function'){
-			      	    	Person.prototype.sayName = function(){
-			      	    		alert(this.name);
-			      	    	};
-			      	    }
+			      	 if(typeof this.sayName != 'function') {
+			      	     Person.prototype.sayName = function() {
+			      	         alert(this.name);
+			      	     };
+			      	 }
 			      }
 			      */
 			   //稳妥构造函数式：durable object(稳妥对象)非常安全的环境中
 			     // 1 没有公共属性，2不能使用this对象
 			     /*
-			     function Person(name,age,job){
-			     	   //创建一个要返回的对象
-			     	   var obj = new Object();
-			     	   // 可以定义一下私有的变量和函数  private
-			     	   var name = name;
-			     	   //var sex = '男';
-			     	   //var saySex =function(){};
+			     function Person(name,age,job) {
+			         //创建一个要返回的对象
+			         var obj = new Object();
+			     	 // 可以定义一下私有的变量和函数  private
+			     	 var name = name;
+			     	 //var sex = '男';
+			     	 //var saySex =function() {};
 			     	   
-			     	   //添加一个方法
-			     	   obj.sayName = function(){
-			     	   	       alert(name);
-			     	   };
-			     	   return obj;
+			     	 //添加一个方法
+			     	 obj.sayName = function() {
+			     	     alert(name);
+			     	 };
+			     	 return obj;
 			     }
 			     var p1 = new Person('草泥马',18,'稀有动物');
 			     p1.sayName();

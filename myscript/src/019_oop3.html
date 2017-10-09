@@ -10,13 +10,13 @@
 			    
 			    // ECMA5: Object.getPrototypeOf();根据实例对象获得原型对象
 			     
-			     function Person(){
+			     function Person() {
 			     	
 			     }
 			     
 			     Person.prototype.name = 'z3';
 			     Person.prototype.age = 20 ;
-			     Person.prototype.sayName = function(){alert('我是原型对象的方法！');};
+			     Person.prototype.sayName = function() {alert('我是原型对象的方法！');};
 			     
 			     /*
 			     var p1 = new Person();
@@ -36,13 +36,13 @@
 			    alert(p2.name);     //就想获得原型对象的name属性
 			   */
 			  
-			  //判断一个对象属性 是属于原型属性 还是属于实例属性
-			  /*
-			  var p3 = new Person();
-			  //p3.name = 'z6';
-			  alert(p3.name);
-			  alert(p3.hasOwnProperty('name'));
-			  */
+			   //判断一个对象属性 是属于原型属性 还是属于实例属性
+			   /*
+			   var p3 = new Person();
+			   //p3.name = 'z6';
+			   alert(p3.name);
+			   alert(p3.hasOwnProperty('name'));
+			   */
 			 
 			 
 			 // in操作符 ： for-in

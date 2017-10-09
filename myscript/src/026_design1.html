@@ -13,7 +13,7 @@
 			       //缺点：还是属于文档的范畴，这种方式太松散了 没有检查接口的方法是否完全被实现
 			       
 			        /**
-			         *    interface Composite {
+			         *  interface Composite {
 			         * 	    function add(obj);
 			         *      function remove(obj);
 			         *      function update(obj);
@@ -21,18 +21,18 @@
 			         */
 			        
 			        // CompositeImp1 implements Composite
-			        var CompositeImp1 = function(){
+			        var CompositeImp1 = function() {
 			        	   
 			 
 			        };
 			        
-			        CompositeImp1.prototype.add = function(obj){
+			        CompositeImp1.prototype.add = function(obj) {
 			        	//do something ...
 			        };
-			        CompositeImp1.prototype.remove = function(obj){
+			        CompositeImp1.prototype.remove = function(obj) {
 			        	//do something ...
 			        };
-			        CompositeImp1.prototype.update = function(obj){
+			        CompositeImp1.prototype.update = function(obj) {
 			        	//do something ...
 			        };
 			        
@@ -41,7 +41,6 @@
 			        
 			        alert(c1.add == c2.add);
 			       
-	
 		</script>
 	</head>
 	<body>
