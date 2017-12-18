@@ -1,25 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>001</title>
-  <script type="text/javascript" charset="utf-8">
-      //浏览器对象 window弹出警告框
-      // alert("hello,world！");
-      //文档的对象
-	  //document.write("hello.world!!");
-	  //把内容打印到控制台
-      console.info("hello,world!!"); 
-  </script>
-  <!--外部引入文件 src属性-->
-  <!--解析顺序 从上到下 边解析边执行-->
-  <!--延迟执行:defer可以延迟执行代码（当页面都加载完毕以后 window.onload）-->
-  <script type="text/javascript" charset="utf-8" defer="defer" src="../commons/001.js"></script>
-  <script type="text/javascript" charset="utf-8">
-      alert("hi,world!!!");
-  </script>
+    <meta charset="utf-8">
+    <title>001</title>
 </head>
-
 <body>
+<script type="text/javascript" charset="utf-8">
+    //浏览器对象 window弹出警告框
+    // alert("hello,world！");
+    //文档的对象
+    //document.write("hello.world!!");
+    //把内容打印到控制台
+    console.info("hello,world!!"); 
+</script>
+<!--外部引入文件 src属性-->
+<!--解析顺序 从上到下 边解析边执行-->
+<!--延迟执行:defer可以延迟执行代码（当页面都加载完毕以后 window.onload）-->
+<script type="text/javascript" charset="utf-8" defer="defer" src="../commons/001.js"></script>
+<script type="text/javascript" charset="utf-8">
+    alert("hi,world!!!");
+</script>
 </body>
 </html>

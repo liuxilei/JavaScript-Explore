@@ -1,100 +1,96 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>oop8</title>
-		<script type="text/javascript" charset="utf-8">
-			      
-			      // 原型继承
-			      
-			      
-			      
-			   //原型继承的特点：即继承了父类的模板，又继承了 父类的原型对象
-			      /*
-			      //父类
-			      function Person(name,age) {
-			          this.name = name;
-			      	  this.age = age;
-			      }
-			      //父类的原型对象属性
-			      Person.prototype.id = 10;
-			      
-			      //子类
-			      function Boy(sex) {
-			          this.sex = sex;
-			      }
-			      
-			      //继承已经实现了
-			      Boy.prototype = new Person('草泥马',20);
-			      
-			      var b = new Boy();
-			      alert(b.name);
-			      alert(b.age);
-			      alert(b.id); 
-			      */
-			     
-			     //类继承(只继承模板，不继承原型对象)(借用构造函数的方式继承)
-   
-                 //父类
-                 
-                 function Person(name,age) {
-                     this.name = name;
-                     this.age = age;
-                 }
-                 //父类的原型对象属性
-                 Person.prototype.id = 10;
-                 
-                 //子类
-                 function Boy(name,age,sex) {
-                     // call apply
-                 	 Person.call(this,name,age);
-                 	 this.sex = sex;
-                 }
-			     
-			     var b = new Boy('张三',20,'男');
-			     alert(b.name);
-			     alert(b.age);
-			     alert(b.sex);
-			     alert(b.id);   //undefined  父类的原型对象并没有继承
-			     
-			    
-			    
-			    // 原型继承+借用构造函数继承 = 混合继承
-			    //父类
-			    /*
-			    function Person(name,age) {
-			        this.name = name;
-			    	this.age = age;
-			    }
-			    // 父类的原型对象属性
-			    Person.prototype.id =10;
-			    Person.prototype.sayName = function() {alert(this.name);};
-			    
-			    //子类
-			    function Boy(name,age,sex) {
-			        //call apply
-			    	Person.call(this,name,age);   //1 借用构造函数继承 继承父类的模板
-			    	this.sex = sex;
-			    }
-			    
-			    // 2 原型继承
-			    // 只剩下 父类的实例 和父类的原型对象的关系
-			    Boy.prototype = new Person();  //继承父类的原型对象
-			    
-			    var b = new Boy('李四',20,'男');
-			    
-			    alert(b.name);
-			    alert(b.age);
-			    alert(b.sex);
-			    alert(b.id);
-			    b.sayName(); 
-			    */
-		</script>
-		
-	</head>
-	<body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>oop8</title>
+</head>
+<body>
+<script type="text/javascript" charset="utf-8">
+	// 原型继承
+     
+    //原型继承的特点：即继承了父类的模板，又继承了 父类的原型对象
+    /*
+    //父类
+    function Person(name,age) {
+        this.name = name;
+      	this.age = age;
+    }
+    //父类的原型对象属性
+    Person.prototype.id = 10;
+      
+    //子类
+    function Boy(sex) {
+        this.sex = sex;
+    }
+      
+    //继承已经实现了
+    Boy.prototype = new Person('草泥马',20);
+      
+    var b = new Boy();
+    alert(b.name);
+    alert(b.age);
+    alert(b.id); 
+    */
+     
+    //类继承(只继承模板，不继承原型对象)(借用构造函数的方式继承)
 
-	</body>
+    //父类
+     
+    function Person(name,age) {
+        this.name = name;
+        this.age = age;
+    }
+    //父类的原型对象属性
+    Person.prototype.id = 10;
+     
+    //子类
+    function Boy(name,age,sex) {
+        // call apply
+     	Person.call(this,name,age);
+     	this.sex = sex;
+    }
+     
+    var b = new Boy('张三',20,'男');
+    alert(b.name);
+    alert(b.age);
+    alert(b.sex);
+    alert(b.id);   //undefined  父类的原型对象并没有继承
+     
+    
+    
+    // 原型继承+借用构造函数继承 = 混合继承
+    //父类
+    /*
+    function Person(name,age) {
+        this.name = name;
+    	this.age = age;
+    }
+    // 父类的原型对象属性
+    Person.prototype.id =10;
+    Person.prototype.sayName = function() {
+        alert(this.name);
+    };
+    
+    //子类
+    function Boy(name,age,sex) {
+        //call apply
+    	Person.call(this,name,age);   //1 借用构造函数继承 继承父类的模板
+    	this.sex = sex;
+    }
+    
+    // 2 原型继承
+    // 只剩下 父类的实例 和父类的原型对象的关系
+    Boy.prototype = new Person();  //继承父类的原型对象
+    
+    var b = new Boy('李四',20,'男');
+    
+    alert(b.name);
+    alert(b.age);
+    alert(b.sex);
+    alert(b.id);
+    b.sayName(); 
+    */
+</script>
+</body>
 </html>
 
