@@ -140,7 +140,7 @@ var CompositeForm = function(id,method,action) {
     //...
 };
 
-//...
+
 
 function addForm(formInstance) {
     ensureImplements(formInstance,Composite,FormItem) {
