@@ -25,7 +25,7 @@
 # 基础知识
 - JS中使用typeof能得到哪些类型？
 
-  ``答：undefined、number、boolean、string、object、function(补充：typeof可以分清值类型，引用类型不行只能判断函数。)``
+ ``答：undefined、number、boolean、string、object、function(补充：typeof可以分清值类型，引用类型不行只能判断函数。)``
 - 何时使用=== 何时使用==？
     ```javascript
     if (obj.a == null) {
@@ -61,7 +61,7 @@ var a = {
 console.log(b); //{value:'1111'} //这里b还是之前的对象，因为a重新赋予了一个对象指针，所以b的value没发生改变
 console.log(b === a); //false
 ```
-    `值类型可以把数值分块存储在内存中，引用类型是好几个变量共用一个内存块，达到节省内存空间目的；值类型的值赋值之后不会相互干涉，引用类型赋值是变量指针的赋值，并不是真正值的拷贝，它们值的修改是相互干预的。`
+`值类型可以把数值分块存储在内存中，引用类型是好几个变量共用一个内存块，达到节省内存空间目的；值类型的值赋值之后不会相互干涉，引用类型赋值是变量指针的赋值，并不是真正值的拷贝，它们值的修改是相互干预的。`
 
 - 如何理解JSON
 
@@ -573,9 +573,8 @@ F2(f1);
 ## 异步和单线程
 #### 题目
 - 同步和异步的区别是什么？分别举一个同步和异步的例子
-
-		·同步会阻塞代码执行，而异步不会
-		·alert是同步，setTimeout是异步
+    - 同步会阻塞代码执行，而异步不会
+    - alert是同步，setTimeout是异步
 - 一个关于setTimeout的笔试题
 ```javascript
 console.log(1);
@@ -589,10 +588,9 @@ setTimeout(function() {
 console.log(5);
 ```
 - 前端使用异步的场景有哪些
-
-		·定时任务：setTimeout,setInterval
-		·网络请求：ajax请求，动态<img>加载
-		·事件绑定
+    - 定时任务：setTimeout,setInterval
+    - 网络请求：ajax请求，动态<img>加载
+    - 事件绑定
 #### 知识点
 - 什么是异步（对比同步）
 ```javascript
@@ -607,15 +605,13 @@ alert(200);
 console.log(300);
 ```
 - 何时需要异步
-
-		·在可能发生的等待的情况
-		·等待过程中不能像alert一样阻塞程序运行
-		·因此，所有的''等待的情况"都需要异步
+    - 在可能发生的等待的情况
+    - 等待过程中不能像alert一样阻塞程序运行
+    - 因此，所有的''等待的情况"都需要异步
 - 前端使用异步的场景
-
-		·定时任务：setTimeout,setInterval
-		·网络请求：ajax请求，动态<img>加载
-		·事件绑定
+    - 定时任务：setTimeout,setInterval
+    - 网络请求：ajax请求，动态<img>加载
+    - 事件绑定
 ```javascript
 //ajax请求代码示例
 console.log('start');
@@ -652,7 +648,7 @@ console.log(300);
 //发现暂存起来的setTimeout中的函数无需等待时间，就立即拿过来执行
 ```
 ---
-## 其他知识
+#### 其他知识
 题目
 
 - 获取2017-06-10格式的日期
@@ -817,7 +813,7 @@ for (key in obj) {
 }
 ```
 ---
-## 回顾JS基础知识
+### 回顾JS基础知识
 - 变量类型和计算
 - 原型和原型链
 - 闭包和作用域
@@ -867,26 +863,25 @@ for (key in obj) {
 
 - DOM是哪种基本的数据结构？
 
- `树`
+    `树`
 - DOM操作的常用API有哪些？
 
- `获取DOM节点，以及节点的property和Attribute`
-
- `获取父节点，获取子节点`
-
- `新增节点，删除节点`
+    `获取DOM节点，以及节点的property和Attribute`
+    
+    `获取父节点，获取子节点`
+    
+    `新增节点，删除节点`
 - DOM节点的attr和property有何区别
 
- `property只是一个JS对象的属性的修改`
-
- `Attribute是对html标签属性的修改`
-
+    `property只是一个JS对象的属性的修改`
+    
+    `Attribute是对html标签属性的修改`
 知识点
 
 - DOM本质
 - DOM节点操作
 
-		浏览器把拿到的html代码，结构化一个浏览器能识别并且js可操作的一个模型而已。
+    ``浏览器把拿到的html代码，结构化一个浏览器能识别并且js可操作的一个模型而已。``
 - DOM结构操作
 
 #### DOM节点操作
@@ -1021,18 +1016,18 @@ function bindEvent(elem,type,selector,fn) {
 ```
 - 描述事件冒泡流程
 
- `DOM树形结构`
+    `DOM树形结构`
 
- `事件冒泡`
+    `事件冒泡`
 
- `阻止冒泡`
+    `阻止冒泡`
 
- `冒泡的应用`
+    `冒泡的应用`
 - 对于一个无限下拉加载图片的页面，如何给每个图片绑定事件
 
- `使用代理`
+    `使用代理`
 
- `知道代理的两个优点`
+    `知道代理的两个优点`
 
 知识点
 
@@ -1227,11 +1222,11 @@ response.setHeader("Access-Control-Allow-Credentials","true");
 
 - 请描述cookie，sessionStorage和localStorage的区别？
 
- `容量`
+    `容量`
 
- `是否会携带到ajax中`
+    `是否会携带到ajax中`
 
- `API易用性`
+    `API易用性`
 
 知识点
 
@@ -1456,14 +1451,20 @@ AMD和CommonJS的使用场景
 题目
 
 - 从输入url到得到html的详细过程
-`浏览器根据DNS服务器得到域名的IP地址`
-`向这个IP的机器发送http请求`
-`服务器收到、处理并返回http请求`
-`浏览器得到返回内容`
+
+    `浏览器根据DNS服务器得到域名的IP地址`
+    
+    `向这个IP的机器发送http请求`
+    
+    `服务器收到、处理并返回http请求`
+    
+    `浏览器得到返回内容`
 
 - window.onload 和 DOMContentLoaded的区别
-`页面的全部资源加载完才会执行，包括图片、视频等`
-`DOM渲染完即可执行，此时图片、视频还没有加载完`
+
+    `页面的全部资源加载完才会执行，包括图片、视频等`
+    
+    `DOM渲染完即可执行，此时图片、视频还没有加载完`
 
 知识点
 
