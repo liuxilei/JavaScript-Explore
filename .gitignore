@@ -7,8 +7,4 @@
 *.iml
 out
 gen
-.gitignore
-.idea/JavaScript-grammar.iml
-.idea/inspectionProfiles/
-.idea/modules.xml
-.idea/workspace.xml
+/.idea/
