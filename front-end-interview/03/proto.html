@@ -19,6 +19,23 @@
         // 第三种方式：Object.create
         var p = {name:'p'};
         var o4 = Object.create(p);
+
+        M.prototype.say = function() {
+            console.log('say hi');
+        };
+        var o5 = new M('o5');
+        o3.say();
+        o5.say();
+
+        var new2 = function(func) {
+            var o = Object.create(func.prototype);
+            var k = func.call(o);
+            if (typeof k === 'object') {
+                return k;
+            } else {
+                return o;
+            }
+        }
     </script>
 </body>
 
