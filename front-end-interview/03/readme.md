@@ -23,3 +23,7 @@ console.log('NaN',Boolean(NaN)); //false
 
 console.log('',Boolean('')); //false
 ```
+#### 类型转换常见题目
+![类型转换常见题目](https://github.com/liuxilei/JavaScript-study/blob/master/front-end-interview/03/img/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%B8%B8%E8%A7%81%E9%A2%98%E7%9B%AE.png)
+#### typeof
+![typeof](https://github.com/liuxilei/JavaScript-study/blob/master/front-end-interview/03/img/typeof.png)
