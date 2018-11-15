@@ -8,9 +8,13 @@
 </head>
 <body>
     <script>
-        window.alert('hello world');
-        document.write('hello world');
-        console.log('hello world');
+        let arr = [];
+        let pushBack = arr.push('l', 'x', 'l');
+        console.log(pushBack, arr); //3 ['l', 'x', 'l'];
+        //push返回值为新数组长度
+        let popBack = arr.pop();
+        console.log(popBack, arr); //'l' ['l', 'x']
+        //pop返回值为被删除的元素
     </script>
 </body>
 </html>
