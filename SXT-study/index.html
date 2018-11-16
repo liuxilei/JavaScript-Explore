@@ -8,13 +8,35 @@
 </head>
 <body>
     <script>
-        let arr = [];
-        let pushBack = arr.push('l', 'x', 'l');
-        console.log(pushBack, arr); //3 ['l', 'x', 'l'];
-        //push返回值为新数组长度
-        let popBack = arr.pop();
-        console.log(popBack, arr); //'l' ['l', 'x']
-        //pop返回值为被删除的元素
+        let arr = [1, 2, 3, 4, 5, 6, 4, 8];
+        let everyBack = arr.every((item, index, array) => {
+            return item > 0;
+        });
+        console.log(everyBack); //true
+
+        let filterBack = arr.filter((item) => {
+            return item > 5
+        });
+        console.log(filterBack);
+
+        arr.forEach((item, index, array) => {
+            console.log(item, index);
+        });
+
+        let mapBack = arr.map((item, index, array) => {
+            return item * 3;
+        });
+        console.log(mapBack);
+
+        let someBack = arr.some((item, index, array) => {
+            return item != 0;
+        });
+        console.log(someBack);
+
+        let reduceBack = arr.reduce((prev, cur, index, array) => {
+            return prev + cur;
+        });
+        console.log(reduceBack);
     </script>
 </body>
 </html>
