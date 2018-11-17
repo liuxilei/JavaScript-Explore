@@ -8,35 +8,9 @@
 </head>
 <body>
     <script>
-        let arr = [1, 2, 3, 4, 5, 6, 4, 8];
-        let everyBack = arr.every((item, index, array) => {
-            return item > 0;
-        });
-        console.log(everyBack); //true
-
-        let filterBack = arr.filter((item) => {
-            return item > 5
-        });
-        console.log(filterBack);
-
-        arr.forEach((item, index, array) => {
-            console.log(item, index);
-        });
-
-        let mapBack = arr.map((item, index, array) => {
-            return item * 3;
-        });
-        console.log(mapBack);
-
-        let someBack = arr.some((item, index, array) => {
-            return item != 0;
-        });
-        console.log(someBack);
-
-        let reduceBack = arr.reduce((prev, cur, index, array) => {
-            return prev + cur;
-        });
-        console.log(reduceBack);
+        let arr = ['1',1];
+        arr.length = 3;
+        console.log(arr, arr[2]);
     </script>
 </body>
 </html>
