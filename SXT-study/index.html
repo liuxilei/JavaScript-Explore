@@ -8,32 +8,20 @@
 </head>
 <body>
     <script>
-        //把数组转换为对象
-        function toObject(arr) {
-            let obj = {};
-            let j;
-            for (let i = 0,j = arr.length;i < j;i++) {
-                obj[arr[i]] = true;
+        var color1 = 'blue';
+        function changeColor() {
+            var color2 = 'red';
+            function swapColor() {
+                var color3 = color2;
+                color2 = color1;
+                color1 = color3;
+                //这里可以访问：color1、color2、color3
             }
-            return obj;
-        };
-        //把对象转为数组
-        function keys(obj) {
-            let arr = [];
-            for (let attr in obj) {
-                if (obj.hasOwnProperty(attr)) {
-                    arr.push(attr);
-                }
-                
-            }
-            return arr;
+            //这里可以访问color1、color2、但不能访问color3
+            swapColor();
         }
-        //综合
-        function uniq(newArr) {
-            return keys(toObject(newArr));
-        }
-        let arr = [1,2,3,2,4,5];
-        console.log(uniq(arr)); //['1', '2', '3', '4', '5']
+        //这里可以访问color1
+        changeColor();
     </script>
 </body>
 </html>
