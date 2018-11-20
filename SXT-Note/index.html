@@ -8,20 +8,16 @@
 </head>
 <body>
     <script>
-        var color1 = 'blue';
-        function changeColor() {
-            var color2 = 'red';
-            function swapColor() {
-                var color3 = color2;
-                color2 = color1;
-                color1 = color3;
-                //这里可以访问：color1、color2、color3
+        var name = '测试';
+        var obj = {
+            name: 'liuxilei',
+            getName: function() {
+                return function() {
+                    return this.name;
+                }
             }
-            //这里可以访问color1、color2、但不能访问color3
-            swapColor();
         }
-        //这里可以访问color1
-        changeColor();
+        console.dir(obj.getName());
     </script>
 </body>
 </html>
