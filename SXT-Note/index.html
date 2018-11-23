@@ -8,16 +8,17 @@
 </head>
 <body>
     <script>
-        var name = '测试';
-        var obj = {
-            name: 'liuxilei',
-            getName: function() {
-                return function() {
-                    return this.name;
-                }
-            }
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.sayName = sayName;
         }
-        console.dir(obj.getName());
+        function sayName() {
+            console.log(this.name);
+        }
+        var lxl = new Person('lxl', 23);
+        var zmj = new Person('zmj', 23);
+        console.log(lxl.sayName == zmj.sayName);
     </script>
 </body>
 </html>
